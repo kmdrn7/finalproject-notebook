@@ -1,0 +1,493 @@
+{
+  "connect.name": "netflowmeter",
+  "fields": [
+    {
+      "name": "flow_id",
+      "type": "string"
+    },
+    {
+      "name": "src_ip",
+      "type": "string"
+    },
+    {
+      "name": "src_port",
+      "type": "long"
+    },
+    {
+      "name": "dst_ip",
+      "type": "string"
+    },
+    {
+      "name": "dst_port",
+      "type": "long"
+    },
+    {
+      "name": "protocol",
+      "type": "long"
+    },
+    {
+      "name": "timestamp",
+      "type": "string"
+    },
+    {
+      "name": "label",
+      "type": "string"
+    },
+    {
+      "name": "extractFeature",
+      "type": {
+        "connect.name": "extractFeature",
+        "fields": [
+          {
+            "name": "flow_duration",
+            "type": "long"
+          },
+          {
+            "name": "totalPacketFeature",
+            "type": {
+              "connect.name": "totalPacketFeature",
+              "fields": [
+                {
+                  "name": "forward",
+                  "type": "long"
+                },
+                {
+                  "name": "length_of_forward",
+                  "type": "double"
+                },
+                {
+                  "name": "backward",
+                  "type": "long"
+                },
+                {
+                  "name": "length_of_backward",
+                  "type": "double"
+                }
+              ],
+              "name": "totalPacketFeature",
+              "type": "record"
+            }
+          },
+          {
+            "name": "fwd_packet_length",
+            "type": {
+              "connect.name": "fwd_packet_length",
+              "fields": [
+                {
+                  "name": "max",
+                  "type": "double"
+                },
+                {
+                  "name": "min",
+                  "type": "double"
+                },
+                {
+                  "name": "mean",
+                  "type": "double"
+                },
+                {
+                  "name": "std",
+                  "type": "double"
+                }
+              ],
+              "name": "fwd_packet_length",
+              "type": "record"
+            }
+          },
+          {
+            "name": "bwd_packet_length",
+            "type": {
+              "connect.name": "bwd_packet_length",
+              "fields": [
+                {
+                  "name": "max",
+                  "type": "double"
+                },
+                {
+                  "name": "min",
+                  "type": "double"
+                },
+                {
+                  "name": "mean",
+                  "type": "double"
+                },
+                {
+                  "name": "std",
+                  "type": "double"
+                }
+              ],
+              "name": "bwd_packet_length",
+              "type": "record"
+            }
+          },
+          {
+            "name": "flow_bytes_per_second",
+            "type": "double"
+          },
+          {
+            "name": "flow_pkts_per_second",
+            "type": "double"
+          },
+          {
+            "name": "flow_IAT",
+            "type": {
+              "connect.name": "flow_IAT",
+              "fields": [
+                {
+                  "name": "max",
+                  "type": "double"
+                },
+                {
+                  "name": "min",
+                  "type": "double"
+                },
+                {
+                  "name": "mean",
+                  "type": "double"
+                },
+                {
+                  "name": "std",
+                  "type": "double"
+                }
+              ],
+              "name": "flow_IAT",
+              "type": "record"
+            }
+          },
+          {
+            "name": "fwd_IAT",
+            "type": {
+              "connect.name": "fwd_IAT",
+              "fields": [
+                {
+                  "name": "max",
+                  "type": "double"
+                },
+                {
+                  "name": "min",
+                  "type": "double"
+                },
+                {
+                  "name": "mean",
+                  "type": "double"
+                },
+                {
+                  "name": "std",
+                  "type": "double"
+                }
+              ],
+              "name": "fwd_IAT",
+              "type": "record"
+            }
+          },
+          {
+            "name": "fwd_IAT_total",
+            "type": "double"
+          },
+          {
+            "name": "bwd_IAT",
+            "type": {
+              "connect.name": "bwd_IAT",
+              "fields": [
+                {
+                  "name": "max",
+                  "type": "double"
+                },
+                {
+                  "name": "min",
+                  "type": "double"
+                },
+                {
+                  "name": "mean",
+                  "type": "double"
+                },
+                {
+                  "name": "std",
+                  "type": "double"
+                }
+              ],
+              "name": "bwd_IAT",
+              "type": "record"
+            }
+          },
+          {
+            "name": "bwd_IAT_total",
+            "type": "double"
+          },
+          {
+            "name": "fwd_PSH_flags",
+            "type": "double"
+          },
+          {
+            "name": "bwd_PSH_flags",
+            "type": "double"
+          },
+          {
+            "name": "fwd_URG_flags",
+            "type": "double"
+          },
+          {
+            "name": "bwd_URG_flags",
+            "type": "double"
+          },
+          {
+            "name": "fwd_header_length",
+            "type": "double"
+          },
+          {
+            "name": "bwd_header_length",
+            "type": "double"
+          },
+          {
+            "name": "fwd_packets_per_second",
+            "type": "double"
+          },
+          {
+            "name": "bwd_packets_per_second",
+            "type": "double"
+          },
+          {
+            "name": "packet_lenght",
+            "type": {
+              "connect.name": "packet_lenght",
+              "fields": [
+                {
+                  "name": "max",
+                  "type": "double"
+                },
+                {
+                  "name": "min",
+                  "type": "double"
+                },
+                {
+                  "name": "mean",
+                  "type": "double"
+                },
+                {
+                  "name": "std",
+                  "type": "double"
+                }
+              ],
+              "name": "packet_lenght",
+              "type": "record"
+            }
+          },
+          {
+            "name": "packet_length_variance",
+            "type": "double"
+          },
+          {
+            "name": "flagCount",
+            "type": {
+              "connect.name": "flagCount",
+              "fields": [
+                {
+                  "name": "fin",
+                  "type": "long"
+                },
+                {
+                  "name": "syn",
+                  "type": "long"
+                },
+                {
+                  "name": "rst",
+                  "type": "long"
+                },
+                {
+                  "name": "psh",
+                  "type": "long"
+                },
+                {
+                  "name": "ack",
+                  "type": "long"
+                },
+                {
+                  "name": "ugr",
+                  "type": "long"
+                },
+                {
+                  "name": "cwr",
+                  "type": "long"
+                },
+                {
+                  "name": "ece",
+                  "type": "long"
+                }
+              ],
+              "name": "flagCount",
+              "type": "record"
+            }
+          },
+          {
+            "name": "download_upload_ratio",
+            "type": "double"
+          },
+          {
+            "name": "average_packet_size",
+            "type": "double"
+          },
+          {
+            "name": "fwd_segment_size_avg",
+            "type": "double"
+          },
+          {
+            "name": "bwd_segment_size_avg",
+            "type": "double"
+          },
+          {
+            "name": "fwd_bulk",
+            "type": {
+              "connect.name": "fwd_bulk",
+              "fields": [
+                {
+                  "name": "bytes_per_bulk",
+                  "type": "long"
+                },
+                {
+                  "name": "packet_per_bulk",
+                  "type": "long"
+                },
+                {
+                  "name": "bulk_rate",
+                  "type": "long"
+                }
+              ],
+              "name": "fwd_bulk",
+              "type": "record"
+            }
+          },
+          {
+            "name": "bwd_bulk",
+            "type": {
+              "connect.name": "bwd_bulk",
+              "fields": [
+                {
+                  "name": "bytes_per_bulk",
+                  "type": "long"
+                },
+                {
+                  "name": "packet_per_bulk",
+                  "type": "long"
+                },
+                {
+                  "name": "bulk_rate",
+                  "type": "long"
+                }
+              ],
+              "name": "bwd_bulk",
+              "type": "record"
+            }
+          },
+          {
+            "name": "fwd_subflow",
+            "type": {
+              "connect.name": "fwd_subflow",
+              "fields": [
+                {
+                  "name": "subflow_packets",
+                  "type": "long"
+                },
+                {
+                  "name": "subflow_bytes",
+                  "type": "long"
+                }
+              ],
+              "name": "fwd_subflow",
+              "type": "record"
+            }
+          },
+          {
+            "name": "bwd_subflow",
+            "type": {
+              "connect.name": "bwd_subflow",
+              "fields": [
+                {
+                  "name": "subflow_packets",
+                  "type": "long"
+                },
+                {
+                  "name": "subflow_bytes",
+                  "type": "long"
+                }
+              ],
+              "name": "bwd_subflow",
+              "type": "record"
+            }
+          },
+          {
+            "name": "fwd_win_bytes",
+            "type": "long"
+          },
+          {
+            "name": "bwd_win_bytes",
+            "type": "long"
+          },
+          {
+            "name": "fwd_act_data_pkts",
+            "type": "long"
+          },
+          {
+            "name": "fwd_seg_size_min",
+            "type": "long"
+          },
+          {
+            "name": "ActivePacket",
+            "type": {
+              "connect.name": "ActivePacket",
+              "fields": [
+                {
+                  "name": "max",
+                  "type": "double"
+                },
+                {
+                  "name": "min",
+                  "type": "double"
+                },
+                {
+                  "name": "mean",
+                  "type": "double"
+                },
+                {
+                  "name": "std",
+                  "type": "double"
+                }
+              ],
+              "name": "ActivePacket",
+              "type": "record"
+            }
+          },
+          {
+            "name": "IdlePacket",
+            "type": {
+              "connect.name": "IdlePacket",
+              "fields": [
+                {
+                  "name": "max",
+                  "type": "double"
+                },
+                {
+                  "name": "min",
+                  "type": "double"
+                },
+                {
+                  "name": "mean",
+                  "type": "double"
+                },
+                {
+                  "name": "std",
+                  "type": "double"
+                }
+              ],
+              "name": "IdlePacket",
+              "type": "record"
+            }
+          }
+        ],
+        "name": "extractFeature",
+        "type": "record"
+      }
+    }
+  ],
+  "name": "netflowmeter",
+  "type": "record"
+}
